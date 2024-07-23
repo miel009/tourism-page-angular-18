@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { destinosList } from './destinos.mock';
 
 @Component({
   selector: 'app-destinos',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class DestinosComponent {
 
+  destinosList = destinosList;
 }

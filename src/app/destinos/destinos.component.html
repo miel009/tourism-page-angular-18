@@ -8,67 +8,22 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Pais</th>
-        <th scope="col">Ciudad </th>
+        <th scope="col">Pais</th> 
+        <th scope="col">Destino </th>
         <th scope="col">Precio </th>
         <th scope="col">Informacion adicional </th>
         
     </tr>
 </thead>
 <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td> Colombia</td>
-        <td>Bogota</td>
-        <td>$980.000</td>
-        <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', 'Colombia']"> Detalles </button></td>
+    <tr *ngFor="let destinos of destinosList">
+        <th scope="row"> {{destinos.id}}</th>
+        <td> {{destinos.pais}}</td>
+        <td> {{destinos.destino}}</td>
+        <td>{{destinos.price|currency }}</td>
+        <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', destinos.description]"> Detalles </button></td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Argentina</td>
-        <td>Santa Cruz </td>
-        <td>$1.500.000</td>
-        <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', 'Argentina']"> Detalles </button></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td> Peru </td>
-        <td> Lima </td>
-        <td> $2.500.000 </td>
-        <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', 'Peru']" > Detalles </button></td>
-      </tr>
-
-      <tr>
-        <th scope="row"> 4</th>
-        <td>Argentina</td>
-        <td> Bariloche </td>
-        <td>$ 800.000</td>
-        <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', 'Argentina']"> Detalles </button></td>
-      </tr> 
-
-      <tr>
-        <th scope="row"> 5</th>
-        <td>Argentina </td>
-        <td> Mendoza </td>
-        <td>$ 930.000</td>
-        <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', 'Argentina']"> Detalles </button></td>
-      </tr> 
-
-      <tr>
-        <th scope="row"> 6</th>
-        <td>Argentina</td>
-        <td> Bariloche </td>
-        <td>$ 800.000</td>
-        <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', 'Argentina']"> Detalles </button></td>
-      </tr> 
-
-      <tr>
-        <th scope="row"> 7 </th>
-        <td> EEUU</td>
-        <td> New York </td>
-        <td>$ 3.800.000</td>
-        <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', 'EEUU']"> Detalles </button></td>
-      </tr> 
+      
     </tbody>
   </table>
   <h2> Destacados </h2>
