@@ -1,0 +1,23 @@
+:root{
+    --one-color: #DBD8E3;
+   
+
+}
+body{
+    margin: 0px;
+    background-color: var(--one-color);
+    /*fond-family ver opciones*/
+
+}
+
+.container-table{
+ margin: auto;
+padding-left: 2rem;
+padding-right: 1rem;
+
+}
+h1{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
