@@ -12,6 +12,8 @@
         <th scope="col">Destino </th>
         <th scope="col">Precio </th>
         <th scope="col">Informacion adicional </th>
+        <th scope="col"> </th>
+
         
     </tr>
 </thead>
@@ -20,8 +22,9 @@
         <th scope="row"> {{destinos.id}}</th>
         <td> {{destinos.pais}}</td>
         <td> {{destinos.destino}}</td>
-        <td>{{destinos.price|currency }}</td>
-        <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', destinos.description]"> Detalles </button></td>
+        <td [ngClass]="{'red-color': destinos.price > 8 }">{{destinos.price | currency }}</td>
+        <td> {{destinos.description}}</td>
+        <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', destinos.id]"> Detalles </button></td>
       </tr>
       
     </tbody>

@@ -1,3 +1,16 @@
-<h1>Muestra todos los detalles de destinos-detalles {{destinos}} </h1> 
+<ng-container *ngIf="!loading">
+    <h1> Destino = {{destinos?.destino}} </h1> 
+    <h2> id = {{destinos?.id}} </h2> 
+    <h3> Pais = {{destinos?.pais}} </h3> 
+    <h4 [ngStyle]="{'color': color}"> Precio = {{destinos?.price | currency}} </h4> 
+    <h5 *ngIf="destinos?.description"> Descripcion {{destinos?.description}} </h5>   
+    
+    
+</ng-container >
+
+<ng-container *ngIf="loading" > <i style="color: blueviolet"> cargando info...  </i></ng-container>
+
+
+ 
 
 

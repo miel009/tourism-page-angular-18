@@ -8,7 +8,7 @@ import { DestinosComponent } from './destinos/destinos.component';
 import { PaquetesComponent } from './paquetes/paquetes.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { DestinosDetallesComponent } from './destinos-detalles/destinos-detalles.component';
-
+import{FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,9 @@ import { DestinosDetallesComponent } from './destinos-detalles/destinos-detalles
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule, //TIPO PLANTILLA
+    ReactiveFormsModule // FORM REACTIVO
   ],
   providers: [
     provideClientHydration()
