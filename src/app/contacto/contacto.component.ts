@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrl: './contacto.component.css'
 })
 export class ContactoComponent {
+ 
+  public usuario: any = {
+  nombre: '',
+  email: ''
+  
+  }
+  enviar(){
+    console.log(this.usuario);
+  }
 
 }
