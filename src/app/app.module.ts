@@ -9,6 +9,7 @@ import { PaquetesComponent } from './paquetes/paquetes.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { DestinosDetallesComponent } from './destinos-detalles/destinos-detalles.component';
 import{FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DniComponent } from './contacto/dni/dni.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import{FormsModule, ReactiveFormsModule } from '@angular/forms';
     DestinosComponent,
     PaquetesComponent,
     ContactoComponent,
-    DestinosDetallesComponent
+    DestinosDetallesComponent,
+    DniComponent
   ],
   imports: [
     BrowserModule,

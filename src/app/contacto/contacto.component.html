@@ -25,11 +25,9 @@
       </select>
    </div>
     <div class="mb-3">
-      <label for="dni" class="form-label"> {{tipoDni}} </label>
-      <input [ngClass]="{'is-invalid': hasErrors('dni', 'required') || hasErrors('dni', 'minlength')  }" type="dni" class="form-control" id="dni" formControlName="dni" >   
-      <div class="text-danger" *ngIf="hasErrors('dni', 'required')" >  {{tipoDni}} requerido</div>
-      <div class="text-danger" *ngIf="hasErrors('dni', 'minlength')" >  {{tipoDni}} Requiere al menos 3 caracteres </div>
-
+      <app-dni [tipoDni]="tipoDni"/>
+     
+      
     </div>
     <div class="mb-3">
       <label for="email" class="form-label"> Email:</label>
