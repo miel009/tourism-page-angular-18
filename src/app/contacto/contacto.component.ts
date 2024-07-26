@@ -9,11 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class ContactoComponent implements OnInit{
  
   formularioContacto: FormGroup
-  usuarioActivo: any = {
-    nombre: 'Melany',
-    apellido: 'Ascencio',
-    dni: '51368679',
-  }
+    tipoDni: string = 'DNI'
+  
 
 
   constructor ( private form: FormBuilder){
@@ -21,33 +18,22 @@ export class ContactoComponent implements OnInit{
     // validamos datos
     this.formularioContacto = this.form.group ({
       nombre: ['', [Validators.required, Validators.minLength(3)]],
-      apellido: [''],
-      dni: ['', [Validators.required, Validators.minLength(3)]],
+      apellido: ['', [Validators.required, Validators.minLength(3)]],
+      tipoDni: [''],
+      dni: [''],
       email:['', [Validators.required ,Validators.email]]
     })
 
   }
 
   ngOnInit(): void {
-    // tambien se puede validar aca, depende de las validaciones necesarias
-   // this.formularioContacto.get('apellido')?.setValidators([Validators.required, Validators.minLength(3)])
-
-    // para borrar las validaciones anteriores: // en este caso para apellido
-    this.formularioContacto.get('apellido')?.clearValidators()
-    this.formularioContacto.get('apellido')?.updateValueAndValidity()
-    // setear por uno
-    //this.formularioContacto.get('nombre')?.setValue(this.usuarioActivo)
-
-    // setear en grupos: 
-    this.formularioContacto.patchValue({
-      nombre: this.usuarioActivo.nombre,
-      apellido: this.usuarioActivo.apellido,
-      dni: this.usuarioActivo.dni,
+   this.formularioContacto.get('tipoDni')?.valueChanges.subscribe( value => {
+   this.tipoDni = value
+    //this.formularioContacto.valueChanges.subscribe( valor => {
+    // muestra valor completo del form
+   // console.log(valor)
     })
-    this.formularioContacto.get('nombre')?.disable()
-    // this.formularioContacto.get('apellido')?.disable()
-    this.formularioContacto.get('dni')?.disable()
-    //para setear nombre si es que ya se conoce el usuario.
+    
   }
 
   hasErrors(_controlName: string , errorType: string){

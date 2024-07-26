@@ -17,10 +17,18 @@
       <div class="text-danger" *ngIf="hasErrors('apellido', 'minlength')" > Requiere al menos 3 caracteres </div>
     </div>
     <div class="mb-3">
-      <label for="dni" class="form-label"> DNI: </label>
+      <label for="tipoDni" class="form-label"> Tipo de DNI </label>
+      <select class="form-select" id="tipoDni" formControlName="tipoDni">
+        <option value="DNI"> DNI </option>
+        <option value="Pasaporte"> Pasaporte </option>
+        <option value="Cedula"> Cedula </option>
+      </select>
+   </div>
+    <div class="mb-3">
+      <label for="dni" class="form-label"> {{tipoDni}} </label>
       <input [ngClass]="{'is-invalid': hasErrors('dni', 'required') || hasErrors('dni', 'minlength')  }" type="dni" class="form-control" id="dni" formControlName="dni" >   
-      <div class="text-danger" *ngIf="hasErrors('dni', 'required')" > DNI requerido</div>
-      <div class="text-danger" *ngIf="hasErrors('dni', 'minlength')" > Requiere al menos 3 caracteres </div>
+      <div class="text-danger" *ngIf="hasErrors('dni', 'required')" >  {{tipoDni}} requerido</div>
+      <div class="text-danger" *ngIf="hasErrors('dni', 'minlength')" >  {{tipoDni}} Requiere al menos 3 caracteres </div>
 
     </div>
     <div class="mb-3">
