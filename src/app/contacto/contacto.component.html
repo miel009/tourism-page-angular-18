@@ -1,13 +1,24 @@
 <div class="container"> 
-  <form #miFormulario="ngForm"  (ngSubmit)="enviar()">
+  <form [formGroup]="formularioContacto"  (ngSubmit)="enviar()">
     <div class="mb-3">
       <label for="nombre" class="form-label"> Nombre: </label>
-      <input type="email" class="form-control" id="nombre" [(ngModel)]="usuario.nombre" required [ngModelOptions]="{standalone: true}">  
-       <!-- ng-model para conectar el objeto -->
+      <input [ngClass]="{'is-invalid': hasErrors('nombre', 'required') || hasErrors('nombre', 'minlength')  }" type="nombre" class="form-control" id="nombre" formControlName="nombre" >   
+      <div class="text-danger" *ngIf="hasErrors('nombre', 'required')" > Nombre requerido</div>
+      <div class="text-danger" *ngIf="hasErrors('nombre', 'minlength')" > Requiere al menos 3 caracteres </div>
+
+        <!-- PARA FORM TIPO PLANTILLA
+          <input type="email" class="form-control" id="nombre" [(ngModel)]="usuario.nombre" required [ngModelOptions]="{standalone: true}">   
+        ngModel= para conectar el objeto -->
     </div>
     <div class="mb-3">
       <label for="email" class="form-label"> Email:</label>
-      <input type="email" class="form-control" id="email" [(ngModel)]="usuario.email" required [ngModelOptions]="{standalone: true}">
+      <input [ngClass]="{'is-invalid': hasErrors('email', 'required') ||  hasErrors('email', 'email')  }" type="email" class="form-control" id="email" formControlName="email"  >
+      <div class="text-danger" *ngIf="hasErrors('email' , 'email')"> Email formato invalido</div>
+      <div class="text-danger" *ngIf="hasErrors('email', 'required')" > Email requerido</div>
+
+        <!-- PARA FORM TIPO PLANTILLA 
+        <input type="email" class="form-control" id="email" [(ngModel)]="usuario.email" required [ngModelOptions]="{standalone: true}">
+          --> 
     </div>
    
     <button type="submit" class="btn btn-primary">Enviar</button>
