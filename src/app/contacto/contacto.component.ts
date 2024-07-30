@@ -10,6 +10,7 @@ export class ContactoComponent implements OnInit , OnDestroy{
  
   formularioContacto: FormGroup
   tipoDni: string = 'DNI'
+  mostrarDNI: Boolean = false
 
   constructor ( private form: FormBuilder){
     // inicializamos el form 
@@ -26,6 +27,7 @@ export class ContactoComponent implements OnInit , OnDestroy{
     this.formularioContacto.get('nombre')?.setValue('Melany')
     this.formularioContacto.get('nombre')?.disable() 
     this.formularioContacto.get('tipoDni')?.valueChanges.subscribe (value => {
+      this.mostrarDNI= value !='' 
       this.tipoDni = value
     })
   }
