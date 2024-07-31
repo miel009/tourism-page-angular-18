@@ -10,6 +10,9 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { DestinosDetallesComponent } from './destinos-detalles/destinos-detalles.component';
 import{FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DniComponent } from './contacto/dni/dni.component';
+import { HttpClientModule } from '@angular/common/http'; 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,8 @@ import { DniComponent } from './contacto/dni/dni.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule, //TIPO PLANTILLA
-    ReactiveFormsModule // FORM REACTIVO
+    ReactiveFormsModule, // FORM REACTIVO
+    HttpClientModule // para hacer peticiones en HTTP
   ],
   providers: [
     provideClientHydration()
