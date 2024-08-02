@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Destinos, destinosList } from '../destinos/destinos.mock';
+import { ActivatedRoute, Params } from '@angular/router';
+import { IProducts } from '../models/products.model';
+import { ApiService } from '../servicios/api.service';
+import { error } from 'console';
+
 
 @Component({
   selector: 'app-destinos-detalles',
@@ -8,23 +11,37 @@ import { Destinos, destinosList } from '../destinos/destinos.mock';
   styleUrl: './destinos-detalles.component.css'
 })
 export class DestinosDetallesComponent implements OnInit {
- destinos?: Destinos;
- destinosList: Destinos[] = destinosList
+
+ destinos?: IProducts;
+ destinosList: IProducts[]=[]
  loading: boolean= true; // cambia entre destinos
  color: string = '';
  
   
- constructor(private _route: ActivatedRoute){ }
+ constructor(
+  private _route: ActivatedRoute,
+  private _apiService: ApiService
+
+){ }
 
  ngOnInit(): void {
-    setTimeout(() =>{
-    this._route.params.subscribe(params => {
-      this.destinos = this.destinosList.find(destinos => destinos.id == params['destinoId']);
-      this.color = this.destinos?.price as number > 8 ? 'red' : ''
-      this.loading = false;
-    });
-    }, 1500);
-
+    this._route.params.subscribe({
+    next:(params: Params)=>{
+     this._apiService.getProductsById(Number(params['id'])).subscribe({
+      next:(data: IProducts)=> {
+      this.destinos=data
+      this.color = this.destinos?.price as number > 100 ? 'red' : ''
+      this.loading = false
+    },
+     error: (error:any) => {
+      console.log(error);
+      this.loading=false;
+      }
+    })
+   },
+   error: (error:any) => {
+    console.log(error);
+   }
+  }) 
  }
-
 }

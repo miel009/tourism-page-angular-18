@@ -20,10 +20,10 @@
 <tbody>
     <tr *ngFor="let destinos of destinosList">
         <th scope="row"> {{destinos.id}}</th>
-        <td> {{destinos.pais}}</td>
-        <td> {{destinos.destino}}</td>
-        <td [ngClass]="{'red-color': destinos.price > 8 }">{{destinos.price | currency }}</td>
+        <td> {{destinos.title}}</td>
         <td> {{destinos.description}}</td>
+        <td [ngClass]="{'red-color': destinos.price > 100 }">{{destinos.price | currency }}</td>
+        
         <td><button type="button" class="btn btn-info" [routerLink]="['/destinos', destinos.id]"> Detalles </button></td>
       </tr>
       
