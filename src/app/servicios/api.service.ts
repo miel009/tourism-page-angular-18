@@ -22,16 +22,16 @@ export class ApiService {
 
   }
 
-  public getCategories(): Observable<Category[]>{
+  public getAllCategories(): Observable<Category[]>{
     return this._httpClient.get<Category[]> (`${this.baseURL}/categories`);
   }
 
-  public postProduct( product : IProducts) : Observable <IProducts>{
+  public newProduct( product : IProducts) : Observable <IProducts>{ //post
     return this._httpClient.post<IProducts> (`${this.baseURL}`, product);
 
   }
 
-  public putProduct(id: number, product: IProducts) : Observable<IProducts>{
+  public updateProduct(id: number, product: IProducts) : Observable<IProducts>{//put
     return this._httpClient.put<IProducts>(`${this.baseURL}/${id}`, product);
   }
 

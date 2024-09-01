@@ -27,7 +27,7 @@ export class DestinosDetallesComponent implements OnInit {
  ngOnInit(): void {
     this._route.params.subscribe({
     next:(params: Params)=>{
-     this._apiService.getProductsById(Number(params['id'])).subscribe({
+     this._apiService.getProductsById(Number(params['destinoId'])).subscribe({
       next:(data: IProducts)=> {
       this.destinos=data
       this.color = this.destinos?.price as number > 100 ? 'red' : ''

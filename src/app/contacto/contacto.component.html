@@ -1,4 +1,8 @@
-<div class="container"> 
+<h1 style="text-align: center; margin-top: 2rem; text-shadow: 1.5px  1.5px 0 #000;">Conocenos   ... </h1>
+<div class="contenedor-madre">
+  <div class="container"> 
+  
+  
   <form [formGroup]="formularioContacto"  (ngSubmit)="enviar()">
     <div class="mb-3">
       <label for="nombre" class="form-label"> Nombre: </label>
@@ -40,6 +44,26 @@
           --> 
     </div>
    
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button id="button" type="submit" class="btn btn-primary" (click)="enviar()">Enviar</button>
+
   </form>
+
+  <p *ngIf="enviado" style="margin-top:10px" class="alert alert-success"  role="alert"> {{mensaje}}</p>
+  <div *ngIf="mostrarAlerta" style="margin-top:10px"  class="alert alert-danger" role="alert">
+    Por favor, completa todos los campos antes de enviar el formulario.
 </div>
+</div>
+
+<div class="map"> 
+  <div>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5715.566936983633!2d-58.402556958807395!3d-34.63624421655438!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1725124029791!5m2!1ses-419!2sar" width="500" height="380" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <p>Contactanos </p>
+  <p>Correo: onlinetravelNine.gmail.com</p>
+  <p>Atención a clientes SAC (24hs)</p>
+  <p>Telefono: 0810 345 0887 </p>
+  <p>WhatsApp: 5491167905675</p>
+
+  </div>
+</div>
+</div>
+<!-- validar que se envie SOLO cuando todos los campos estes llenos.-->

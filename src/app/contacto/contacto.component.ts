@@ -11,6 +11,10 @@ export class ContactoComponent implements OnInit , OnDestroy{
   formularioContacto: FormGroup
   tipoDni: string = 'DNI'
   mostrarDNI: Boolean = false
+  enviado:Boolean= false
+  mostrarAlerta: Boolean=false
+  mensaje:String=''
+
 
   constructor ( private form: FormBuilder){
     // inicializamos el form 
@@ -42,8 +46,14 @@ export class ContactoComponent implements OnInit , OnDestroy{
   }
 
   enviar(){
-    console.log(this.formularioContacto)
-  }
+    this.mostrarAlerta = false;
+    if (this.formularioContacto.valid) {
+      this.enviado = true;
+      this.mensaje = 'Formulario enviado con éxito!';
+    } else {
+      this.mostrarAlerta = true; 
+      // Mostrar la alerta si el formulario es inválido
+    }
    
-
+  }
 }

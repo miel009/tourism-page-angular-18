@@ -1,4 +1,26 @@
-
+*{
+    border-radius: 20px;
+    margin-bottom: 15px;
+    text-shadow: 0.5px  0.5px 0 #000;
+}
+#button{
+margin-top: 2rem;
+}
+.contenedor-madre{
+    display: grid;
+    grid-template-columns: 40% 60%; /*dividimos la pantalla en dos columnas*/
+}
+/*contenedor del formulario*/
 .container{
+    background-color: rgb(202, 196, 236);
     margin-top: 2rem;
+    margin-left: 15%; /*espaciado a la izq*/
+    padding:30px;  
+    width: 95%;
+}
+/* 2do contenedor del mapa*/
+.map{
+    margin-top: 2rem;
+    margin-left: 20%; /*espaciado a la izq*/
+   
 }

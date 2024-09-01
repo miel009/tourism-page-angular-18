@@ -1,14 +1,18 @@
-  <div class="card" style="width: 18rem;">
-        <img src="{{destinos?.image}}" class="card-img-top" alt="{{destinos?.title}}">
-        <div class="card-body">
-          <h5 class="card-title"> {{destinos?.title}}</h5>
-          <p class="card-text"> {{destinos?.description}}</p>
+<div class="center">  
+  <div class="card" style="width: 18rem;" *ngIf="!loading" >
+    <img src="{{destinos?.image}}" class="card-img-top" alt="{{destinos?.title}}">
+    <div class="card-body">
+      <h5 class="card-title"> {{destinos?.title | uppercase}}</h5>
+      <p class="card-text"> {{destinos?.price | currency }}</p>
+      <p class="card-text"> {{destinos?.category}}</p>
+      <p class="card-text"> {{destinos?.description}}</p>
       
-        </div>
-      </div> 
-    
-    
+    </div>
+  </div> 
+</div>
 
+  
+  
 
 <ng-container *ngIf="loading" > <i style="color: blueviolet"> cargando info...  </i></ng-container>
 

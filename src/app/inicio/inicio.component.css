@@ -1,0 +1,19 @@
+
+/* Asegurarse de que la animación de opacidad coincida con la duración de la transición 
+.carousel-item {
+    transition: transform 5s ease-in-out !important;
+  }
+  .carousel-fade .carousel-item {
+    transition: opacity 5s ease-in-out !important;
+  }
+     es para una transicion lenta*/
+
+.carrusel-contenedor {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem; /* Añade un espacio de 2rem entre los carruseles */
+margin: 2rem; /* Espaciado general */
+}
+      
+
+
